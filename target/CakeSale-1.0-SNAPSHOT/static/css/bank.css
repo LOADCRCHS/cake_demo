@@ -1,0 +1,188 @@
+﻿.hide{
+	display: none !important;
+}
+.switch-contain{
+	float: none;
+	height: 290px;
+}
+.wrapperIndex{
+	padding-bottom: 0;
+	height: 290px;
+}
+#focus{
+	height: 290px;
+}
+#focus ul{
+	height: 290px;
+}
+.switch-contain .wrapperIndex img{
+	width: 980px;
+	height: 290px;
+}
+.bank_item ul{
+	display: inline-block;
+}
+.bank_container{
+	background: #fffaea;
+	width: 980px;
+	margin: 0 auto;
+	padding-bottom: 5px;
+}
+.banklist{
+	width: 980px;
+}
+.banklist table{
+	width: 960px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.banklist table tr{
+	width: 100%;
+}
+.banklist table td{
+	width: 190px;
+	padding-right: 2px;
+	padding-bottom: 7px;
+	float: left;
+}
+.activity_area{
+    display: inline-block;
+    margin-left: -25px;
+}
+.area_line{
+	margin-top: 18px;
+	margin-bottom: 20px;
+	width: 980px;
+	height: 22px;
+	text-align: center;
+}
+.area_line .lineLeft{
+	width: 150px;
+	height: 2px;
+	display: inline-block;
+	margin-bottom: 5px;
+	background: linear-gradient(to right, #ffffff 0%,#ff4001 100%);
+	background: -webkit-linear-gradient(to right, #ffffff 0%,#ff4001 100%); 
+	/* Firefox 3.6+ */ 
+	background: -moz-linear-gradient(to right, #ffffff 0%,#ff4001 100%); 
+	/* Opera 11.10+ */ 
+	background: -o-linear-gradient(to right, #ffffff 0%,#ff4001 100%);
+	/* IE 10 */ 
+	background: -ms-linear-gradient(to right, #ffffff 0%,#ff4001 100%); 
+	/* IE < 10 */ 
+	/* 注意：这一行必须写在最后 */ 
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff, endColorStr=#ff4001);
+}
+.area_line .lineRight{
+	width: 150px;
+	height: 2px;
+	display: inline-block;
+	margin-bottom: 5px;
+	background: linear-gradient(to left, #ffffff 0%,#ff4001 100%);
+	background: -webkit-linear-gradient(to left, #ffffff 0%,#ff4001 100%); 
+	/* Firefox 3.6+ */ 
+	background: -moz-linear-gradient(to left, #ffffff 0%,#ff4001 100%); 
+	/* Opera 11.10+ */ 
+	background: -o-linear-gradient(to left, #ffffff 0%,#ff4001 100%);
+	/* IE 10 */ 
+	background: -ms-linear-gradient(to left, #ffffff 0%,#ff4001 100%); 
+	/* IE < 10 */ 
+	/* 注意：这一行必须写在最后 */ 
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff, endColorStr=#ff4001);
+}
+.area_line span{
+	display: inline-block;
+    background: #fffaea;
+    padding: 0 8px;
+    font-family: 'FZLanTing';
+	color: #ff4001;
+	font-size: 22px;
+}
+.activity_list{
+	width: 980px;
+}
+.clearfix:after{
+	content: " ";
+	clear: both;
+	display: table;
+}
+.bank_item{
+	width: 100%;
+	margin-bottom: 10px;
+	background: white;
+}
+.bank_item:last-child{
+	margin-bottom: 0px;
+}
+.bank_item .images{
+	width: 200px;
+	height: 180px;
+	display: inline-block;
+	float: left;
+}
+.bank_item .introduce{
+	width: 720px;
+	float: right;
+	margin-top: 21px ;
+	padding-right: 26px;
+	margin-bottom: 20px;
+}
+ .introduce ul{
+ 	width: 500px;
+ }
+.action{
+	display: inline-block;
+	float: right;
+	text-align: center;
+}
+.action a img{
+	width: 98px;
+}
+.limited{
+	text-align: center;
+	margin-top: 10px;
+}
+.limited_span{
+	margin-top: 8px;
+	display: inline-block;
+	background: url(../images/orange_bg.png) no-repeat;
+	width: 50px;
+	height: 50px;
+	padding-top: 8px;
+    background-size: 50px 50px;
+    font-size: 13px;
+}
+.limited_span span{
+	display: block;
+	color: #ff4001;
+}
+
+.introduce .discount{
+	font-size: 20px;
+	color: #000000;
+	font-family: 'FZLanTing';
+}
+.introduce ul li{
+	float: none;
+	margin-top: 5px;
+}
+.intro_body{
+	width: 570px;
+	font-size: 16px;
+	color: #646464;
+}
+.more{
+	font-size: 14px;
+	cursor: pointer;
+	/*padding-right: 10px;
+	padding-bottom: 10px;*/
+	height: 28px;
+    line-height: 28px;
+	text-align: center;
+	background: #ececec;
+}
+.more span img{
+	margin-left: 6px;
+	width:13px;
+	height:13px;
+}

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cakesale.dao.OrderDAO">
+
+    <resultMap id="orderMap"  type="Order">
+        <result property="id" column="orderId"/>
+        <result property="userId" column="userId"/>
+        <result property="addrId" column="addrId"/>
+        <result property="payAmount" column="payAmount"/>
+        <result property="payChannel" column="payChannel"/>
+        <result property="expressId" column="expressId"/>
+        <result property="createTime" column="createTime"/>
+        <result property="deliveryTime" column="deliveryTime"/>
+        <result property="receiptInformation" column="receiptInformation"/>
+        <result property="payStatus" column="payStatus"/>
+        <result property="receiveStatus" column="receiveStatus"/>
+        <result property="status" column="status"/>
+        <result property="expressName" column="expressName"/>
+        <collection property="orderItems" ofType="OrderItem" javaType="list">
+            <result property="id" column="orderItemId"/>
+            <result property="orderId" column="orderId"/>
+            <result property="productSpecId" column="specId"/>
+            <result property="productNum" column="productNum"/>
+            <result property="productName" column="productName"/>
+            <result property="productImg" column="productImg"/>
+            <association property="specification" javaType="Specification">
+                <result property="id" column="specId"/>
+                <result property="tablewareNum" column="tablewareNum"/>
+                <result property="height" column="height"/>
+                <result property="length" column="length"/>
+                <result property="width" column="width"/>
+                <result property="weight" column="weight"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <sql id="selOrder">
+        select o.id                  orderId,
+               o.user_id             userId,
+               o.addr_id             addrId,
+               o.pay_amount          payAmount,
+               o.pay_channel         payChannel,
+               o.express_id          expressId,
+               o.create_time         createTime,
+               o.delivery_time       deliveryTime,
+               o.receipt_information receiptInformation,
+               o.pay_status          payStatus,
+               o.receive_status      receiveStatus,
+               o.status,
+               e.name                expressName,
+               oi.id                 orderItemId,
+               oi.product_num        productNum,
+               oi.product_name       productName,
+               oi.product_img        productImg,
+               s.id                  specId,
+               s.tableware_num       tablewareNum,
+               s.height,
+               s.length,
+               s.width,
+               s.weight
+
+        from `order` o
+                 left join express e on o.express_id = e.id
+                 left join orderitem oi on o.id = oi.order_id
+                 left join product_spec ps on ps.id = oi.product_spec_id
+                 left join specification s on s.id = ps.spec_id
+    </sql>
+    <select id="getOrderByUserId_1" resultMap="orderMap">
+        <include refid="selOrder"/>
+        where user_id = #{userId};
+    </select>
+    <select id="getOrderByOrderId" resultMap="orderMap">
+        <include refid="selOrder"/>
+        where o.id = #{orderId};
+    </select>
+
+    <update id="updateOrderByOrderId" parameterType="Order">
+        update `order`
+        <set>
+            <if test="status!=null">status=#{status},</if>
+            <if test="payStatus!=null">payStatus=#{payStatus},</if>
+            <if test="receiveStatus!=null">receiveStatus=#{receiveStatus}</if>
+        </set>
+        where id=#{id};
+    </update>
+
+    <insert id="addOrder" parameterType="Order">
+        insert into `order` (user_id,
+                             addr_id,
+                             pay_amount,
+                             pay_channel,
+                             express_id,
+                             create_time,
+                             delivery_time,
+                             receipt_information)
+        values (#{userId},
+                #{addrId},
+                #{payAmount},
+                #{payChannel},
+                #{expressId},
+                now(),
+                #{deliveryTime},
+                #{receiptInformation});
+    </insert>
+
+    <delete id="delOrder">
+        update `order`
+        set status = 0
+        where id = #{id};
+    </delete>
+
+
+    <!--<![CDATA[在这里写增删改查的语句]]>-->
+    <!--<![CDATA[你的注释]]>-->
+
+    <resultMap id="orderList" type="Order">
+        <id property="id" column="o_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="payAmount" column="pay_amount"/>
+        <result property="payChannel" column="pay_channel"/>
+        <result property="createTime" column="create_time"/>
+        <result property="deliveryTime" column="delivery_time"/>
+        <result property="integral" column="integral"/>
+        <association property="orderitem" javaType="Orderitem">
+            <id property="id" column="oi_id"/>
+            <result property="productId" column="product_id"/>
+            <result property="productNum" column="product_num"/>
+            <association property="product" javaType="Product">
+                <result property="name" column="name"/>
+            </association>
+        </association>
+
+        <association property="express" javaType="Express">
+            <result property="name" column="expressName"/>
+            <result property="price" column="expressPrice"/>
+        </association>
+
+        <association property="address" javaType="Address">
+            <result property="receiveName" column="receive_name"/>
+            <result property="phoneNum" column="phone_num"/>
+        </association>
+    </resultMap>
+
+    <!--通过用户ID查找订单-->
+    <select id="getOrderByUserId" resultMap="orderList" parameterType="Integer">
+        SELECT o.id o_id,orderitem.`product_num`,user_id,order_item_id,addr_id,pay_amount,pay_channel,express_id,create_time,delivery_time,receipt_information,integral
+        FROM orderzz o
+                 INNER JOIN orderitem
+                     ON orderitem.`id`=o.order_item_id
+        WHERE user_id=#{userId};
+    </select>
+
+    <!--通过订单ID查找订单详请-->
+    <select id="getOrderById" resultMap="orderList" parameterType="Integer">
+        SELECT o.id o_id,e.name expressName,e.price expressPrice, user_id,order_item_id,addr_id,pay_amount,pay_channel,express_id,create_time,delivery_time,receipt_information,integral
+        FROM orderzz o
+                 INNER JOIN express e
+                     ON o.express_id=e.id
+        WHERE o.id=#{OrderId};
+    </select>
+
+    <!--通过订单ID查找订单详情中订单数量-->
+    <select id="getOrderitemByOrderId" resultMap="orderList" parameterType="Integer">
+        SELECT oi.`product_num`
+        FROM orderzz o,orderitem oi
+        WHERE o.`order_item_id`=oi.`id` AND o.`id`=#{OrderId}
+    </select>
+
+    <!--通过订单ID查找用户地址信息-->
+    <select id="getAddressByOrderId" resultMap="orderList" parameterType="Integer">
+        SELECT receive_name,phone_num
+        FROM orderzz o,address a
+        WHERE o.`addr_id`=a.id AND o.`id`=#{OrderId}
+    </select>
+
+    <!--通过订单ID查找商品信息-->
+    <select id="getProductByOrderId" resultMap="orderList" parameterType="Integer">
+        SELECT oi.id oi_id,oi.product_num,p.name,o.id o_id,pay_amount,pay_channel,integral,oi.product_id,o.create_time
+        FROM orderitem oi,product p,orderzz o
+        WHERE oi.product_id=p.id AND o.order_item_id=oi.id
+          AND oi.product_id=(SELECT oi.product_id
+                             FROM orderzz o,orderitem oi
+                             WHERE o.order_item_id=oi.id AND o.id=#{OrderId})
+    </select>
+
+    <!--通过用户ID查找积分，商品名称-->
+    <select id="getProductByUserId" resultMap="orderList" parameterType="Integer">
+        SELECT o.id o_id,p.name,o.`integral`
+        FROM orderzz o,orderitem oi,product p
+        WHERE o.`order_item_id`=oi.`id` AND oi.`product_id`=p.id AND o.`user_id`=#{userId}
+    </select>
+
+</mapper>

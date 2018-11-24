@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cakesale.dao.ProductDetailDAO">
+    <resultMap id="ProductDetailMap1" type="ProductSpec">
+        <id column="PS_ID" property="id"/>
+        <result column="P_ID" property="p_id"/>
+        <result column="STOCKS" property="stocks"/>
+        <result column="NAME" property="name"/>
+        <result column="SWEET" property="sweet"/>
+        <result column="REMARK" property="remark"/>
+        <result column="DEFAULT_PRICE" property="default_price"/>
+        <result column="IMG_URL" property="imgUrl"/>
+        <collection property="imgsList" ofType="ProductDetailImgs" >
+            <result property="product_id" column="PRODUCT_ID"/>
+            <result property="detail_img_url" column="DETAIL_IMG_URL"/>
+            <result property="sort" column="SORT"/>
+        </collection>
+        <collection property="specificationList" ofType="Specification" >
+            <id property="id" column="PCF_ID"/>
+            <result property="number_of_eat" column="NUMBER_OF_EAT"/>
+            <result property="length" column="LENGTH"/>
+            <result property="width" column="WIDTH"/>
+            <result property="height" column="HEIGHT"/>
+            <result property="weight" column="WEIGHT"/>
+            <result property="tablewareNum" column="TABLEWARE_NUM"/>
+        </collection>
+    </resultMap>
+
+
+    <resultMap id="ProductDetailMap" type="Product">
+        <result column="P_ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="SWEET" property="sweet"/>
+        <result column="REMARK" property="remark"/>
+        <result column="DEFAULT_PRICE" property="price"/>
+        <result column="IMG_URL" property="imgUrl"/>
+        <result column="P_PS_ID" property="ps_id"/>
+        <collection property="imgsList" ofType="ProductDetailImgs" >
+            <result property="product_id" column="PRODUCT_ID"/>
+            <result property="detail_img_url" column="DETAIL_IMG_URL"/>
+            <result property="sort" column="SORT"/>
+        </collection>
+        <collection property="productValueList" ofType="ProductValue">
+            <id property="id" column="PS_ID"/>
+            <result property="productId" column="P_ID"/>
+            <result property="price" column="PRICE"/>
+            <result property="stocks" column="STOCKS"/>
+                <result property="sp_id" column="PCF_ID"/>
+                <result property="number_of_eat" column="NUMBER_OF_EAT"/>
+                <result property="length" column="LENGTH"/>
+                <result property="width" column="WIDTH"/>
+                <result property="height" column="HEIGHT"/>
+                <result property="weight" column="WEIGHT"/>
+                <result property="tablewareNum" column="TABLEWARE_NUM"/>
+            </collection>
+    </resultMap>
+    <select id="getAllProductDetailByProductId" resultMap="ProductDetailMap" parameterType="int">
+        SELECT
+            p.id               P_ID,
+            p.name             NAME,
+            p.sweet            SWEET,
+            p.remark           REMARK,
+            p.img_url           IMG_URL,
+            p.default_price    DEFAULT_PRICE,
+            p.ps_id             P_PS_ID,
+            pdi.product_id     PRODUCT_ID,
+            pdi.detail_img_url DETAIL_IMG_URL,
+            pdi.sort           SORT,
+            ps.price           PRICE,
+            ps.id               PS_ID,
+            ps.stocks           STOCKS,
+            sp.id              PCF_ID,
+            sp.number_of_eat  NUMBER_OF_EAT,
+            sp.length         LENGTH,
+            sp.width          WIDTH,
+            sp.height         HEIGHT,
+            sp.weight         WEIGHT,
+            sp.tableware_num   TABLEWARE_NUM
+        FROM product p
+            LEFT JOIN product_spec ps
+                ON ps.product_id = p.id
+            LEFT JOIN product_detail_img pdi
+                ON pdi.product_id = p.id
+            LEFT JOIN specification sp
+                ON sp.id = ps.spec_id
+        WHERE p.id = #{ps_product_Id}
+    </select>
+
+
+
+    <select id="getProduct_id" parameterType="int" resultType="int">
+        SELECT product_id FROM product_spec ps WHERE ps.id=#{ps_id}
+    </select>
+
+
+    <select id="getPriceByGoodsId" parameterType="int" resultType="double">
+        SELECT price FROM product_spec WHERE id = #{id}
+    </select>
+
+</mapper>

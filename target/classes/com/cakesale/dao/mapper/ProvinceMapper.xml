@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cakesale.dao.ProvinceDao">
+    <resultMap id="provinceMap" type="Province">
+        <result property="pid" column="id"/>
+        <result property="pname" column="provinceName"/>
+        <collection property="cityList" ofType="City">
+            <result property="cid" column="CityID"/>
+            <result property="name" column="Name"/>
+        </collection>
+    </resultMap>
+
+    <sql id="selPro">
+        select province.ProvinceID id, provinceName, CityID, Name
+        from province
+                 left join city on province.ProvinceID = city.ProvinceID;
+    </sql>
+    <select id="getProvince" resultMap="provinceMap">
+        <include refid="selPro"/>
+    </select>
+
+    <select id="getCityByPid" resultType="City">
+        select CityID, Name
+        from city
+        where ProvinceID = #{pid};
+    </select>
+
+</mapper>
