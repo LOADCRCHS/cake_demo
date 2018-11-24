@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cakesale.dao.CommentDAO">
+
+    <!--<![CDATA[在这里写增删改查的语句]]>-->
+    <resultMap id="select_comment" type="CommentTO">
+        <id property="id" column="ID"/>
+        <result property="comment" column="Comment"/>
+        <!--<association property="User" javaType="User">-->
+        <!--<id property="id" column="USER_ID"/>-->
+
+        <!--</association>-->
+        <association property="product" javaType="product">
+            <id property="id" column="PRODUCTID"/>
+            <result property="name" column="priductNum"/>
+        </association>
+    </resultMap>
+    <select id="getCommentByUserId" resultMap="select_comment">
+        SELECT p.name priductNum,COMMENT
+        FROM COMMENT c
+                 INNER JOIN product p
+                     ON c.product_id=p.id
+        WHERE USER_ID=#{userId}
+    </select>
+    <!--<![CDATA[你的注释]]>-->
+
+    <resultMap id="getComments" type="IndexComment">
+        <id column="ID" property="id"></id>
+        <result column="ACCOUNT" property="account"></result>
+        <result column="PRODUCT_NAME" property="product_name"/>
+        <result column="PRODUCT_IMG_URL" property="product_img_url"/>
+        <result column="COMMENT" property="comment"/>
+        <result column="COMMENT_DATE" property="comment_date"/>
+        <result column="PRODUCT_ID" property="product_id"></result>
+        <result column="PHONE_NUM" property="phone_num"/>
+        <result column="COM_IMG_URL" property="product_com_img_url"/>
+    </resultMap>
+    <select id="getAllComments" resultMap="getComments">
+        SELECT
+            c.id           ID,
+            account,
+            p.name         PRODUCT_NAME,
+            p.img_url      PRODUCT_IMG_URL,
+            p.id           PRODUCT_ID,
+            p.com_img_url  COM_IMG_URL,
+            c.comment      COMMENT,
+            c.comment_date COMMENT_DATE,
+            u.phone_num
+        FROM COMMENT c
+            LEFT JOIN
+            USER u
+                ON c.user_id = u.id
+            LEFT JOIN
+            product p
+                ON c.product_id = p.id
+    </select>
+
+    <resultMap id="DetailCommentMap" type="DetailComment">
+            <id property="id" column="C_ID"/>
+            <result property="comment" column="COMMENT"/>
+            <result property="comment_date" column="COMMENT_DATE"/>
+            <result property="phone_num" column="PHONE_NUM"/>
+            <result property="number_of_eat" column="NUMBER_OF_EAT"/>
+    </resultMap>
+    <select id="getDetailCommentByProductId" resultMap="DetailCommentMap" parameterType="int">
+        SELECT
+            c.id             C_ID,
+            c.comment        COMMENT,
+            c.comment_date   COMMENT_DATE,
+            u.phone_num      PHONE_NUM,
+            sp.number_of_eat NUMBER_OF_EAT
+        FROM COMMENT c
+            LEFT JOIN USER u
+                ON c.user_id = u.id
+            LEFT JOIN specification sp
+                ON c.spec_id = sp.id
+        WHERE c.product_id = #{goodsId}
+    </select>
+</mapper>

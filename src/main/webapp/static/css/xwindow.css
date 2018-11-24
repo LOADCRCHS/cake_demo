@@ -1,0 +1,12 @@
+﻿.x-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);z-index:99993;}
+.x-window {display:block;  width:420px; background:#c2b066; z-index:99999; position:fixed;top:50%; left:50%;margin:-170px 0 0 -210px;}
+.x-window .x-title{padding:10px; background:url(../images/divtit.jpg) 4px center no-repeat; clear:both; overflow:hidden;}
+.x-window .x-title .x-close{ display: inline;float:right; width:20px; height:21px; background:url(../images/close.jpg) center center no-repeat;}
+.x-window .x-inner{display:block; margin:2px; background:#FFFFFF; border-top:1px #dcd6bc solid; overflow:hidden;}
+.x-window .x-inner-p {display:block; padding:20px 10px; font-size:14px; color:#bc9d5d; text-align:center; overflow:hidden;}
+.x-window .x-inner-p p {line-height:22px; text-align:center; font-family:"微软雅黑";}
+.x-window .x-line{ border-bottom:1px #bc9d5d solid; margin:15px 0; clear:both;}
+.x-window .x-buttons {text-align:center; clear:both; overflow:hidden; }
+.x-window .x-buttons a.x-btn{display:inline-block; float:none; height:23px; line-height:23px; padding:0 5px; border:#B39D74 2px solid; border-radius:4px; background-color:#C19C58; color:#FFF; margin:0 5px; font-size:12px; font-family:"宋体"; font-weight:normal;}
+.x-window .x-buttons a.x-none {border:#C3C3C3 2px solid; background-color:#FFF; color:#7E7E7E;}
+.x-loader {position:fixed; width:300px;height:20px; line-height:20px; top:0; left:0;background: url(../images/loading.gif) 5px center no-repeat #FFF;z-index:99994; padding:5px 5px 5px 25px; color:#F00; font-family:"微软雅黑"; font-size:12px; border-radius:4px;}

@@ -1,0 +1,19 @@
+﻿@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+body { text-align:center; font-family: Arial,verdana, '宋体', sans-serif; line-height:160%; font-size:12px; color:#000; background-color:#fff;}
+table { border-collapse: collapse; border-spacing: 0;}
+img { border: 0px; nobar:expression(this.galleryImg='no');}
+a:link, a:visited { color:#646464; text-decoration: none; cursor:pointer; overflow: hidden;}
+a:hover { color: #646464; text-decoration: none; overflow: hidden;}
+ul { list-style-type:none; border:0px;}
+li { list-style: none outside none;}
+em, th { font-style: normal; font-weight: normal;}
+input, textarea, select { font-family: inherit; font-size: inherit; font-weight: inherit;}
+div {display: block;}
+.L{ float:left;}
+.R{ float:right;}
+.TN_hide{ display:none;}
+.TN_show{ display:block;}
+/**********************************首页样式2014/4/21节点
+**********************************************/

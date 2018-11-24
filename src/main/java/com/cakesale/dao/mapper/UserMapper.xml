@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cakesale.dao.UserDAO">
+    <!--<![CDATA[在这里写增删改查的语句]]>-->
+    <!--<![CDATA[你的注释]]>-->
+
+    <resultMap id="userList" type="User">
+        <id property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="email" column="email"/>
+        <result property="phoneNum" column="phone_num"/>
+        <result property="password" column="password"/>
+        <result property="sex" column="sex"/>
+        <result property="birthday" column="birthday"/>
+        <result property="qqNum" column="qq_num"/>
+        <result property="addrId" column="addr_id"/>
+
+    </resultMap>
+
+    <!--通过用户ID查找用户信息-->
+    <select id="getUserById" resultMap="userList" parameterType="Integer">
+        SELECT id,account,email,phone_num,birthday,qq_num
+        FROM USER
+        WHERE id=#{userId}
+    </select>
+   <!--通过用户ID修改用户信息-->
+    <update id="editUserById" parameterType="map">
+        UPDATE USER
+        SET account=#{account},email=#{email},birthday=#{birthday},phone_num=#{phoneNum},qq_num=#{qqNum}
+        WHERE id=#{id}
+    </update>
+
+    <!--吴-->
+    <insert id="register" parameterType="User" >
+
+        INSERT INTO USER(PHONE_NUM,PASSWORD) VALUES(#{phoneNum},#{password});
+    </insert>
+    <!--<![CDATA[你的注释]]>-->
+    <select id="getUserByPhoneNum" parameterType="User" resultType="User">
+        SELECT id,PHONE_NUM PHONENUM FROM USER WHERE PHONE_NUM=#{phoneNum}
+    </select>
+    <select id="getUserByAccount" resultType="User">
+        SELECT id,ACCOUNT FROM USER WHERE ACCOUNT=#{account} AND PASSWORD=#{password}
+    </select>
+
+    <!--根据用户ID修改用户密码-->
+    <update id="editUserPasswordById" parameterType="User">
+        UPDATE USER
+        SET PASSWORD=#{password}
+        WHERE id=#{id}
+    </update>
+</mapper>

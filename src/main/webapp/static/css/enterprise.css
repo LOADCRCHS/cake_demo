@@ -1,0 +1,45 @@
+﻿.enter-menu{width:980px;background:#fafafa;margin:30px auto;}
+.enter-fill-in{overflow:hidden;width:980px;height:491px;}
+.fill-left,.fill-right,.fill-title,.fill-input{float:left;}
+.fill-title img{vertical-align:middle;}
+.fill-left{width:549px;background:#fbf2e1;height:491px;border-right: 1px solid #ffffff;}
+.fill-right{width:429px;border-left: 1px solid #E2DBD3;}
+.fill-right h3{height:30px;line-height:30px;font-size:12px;font-weight:bold;}
+.condition-box{font-size:12px;color:#636363;overflow:hidden;margin-top:10px;}
+.num-list{width:12px;float:left;line-height:20px;}
+.condition{width:408px;float:left;line-height:20px;}
+.act-le{font-size:14px;color:#636363;}
+.fill-info{width:100%;margin-bottom:10px;overflow:hidden;height:30px;}
+ input,select{outline:none;}
+ .fill-title,.fill-input,.act-le,.explain-com,.explain-box h2{font-family:'����';}
+.fill-title{font-size:12px;color:#878787;text-align:right;width:150px;}
+.fill-title em{color:#F00000;}
+.fill-input{font-size:12px;color:#878787;width:399px;}
+.fill-input,.fill-title,.cp-name,.people-num,.tast-dp,.tast-wh,.act-num,.u-name,.u-cell,.u-phone{height:25px;line-height:25px;}
+#provinceid,.sel-province,.sel-city,.sel-area{text-align:left;height:22px;padding:1px;margin:0;line-height:22px;}
+.sel-province,.sel-city{width:90px;}
+.sel-area{width:126px;}
+.cp-name{width:256px;}
+.people-num{width:97px;}
+.tast-dp{width:195px;}
+.tast-wh{width:130px;}
+.act-num{width:256px;}
+.u-name{width:130px;}
+.u-cell{width:172px;}
+.u-phone{width:83px;}
+.sub{width:73px;height:32px;margin:20px 0 20px 150px;_margin-left:75px;#margin-left:75px;}
+.submit{width:73px;height:32px;border:0;border:none;background:url(../images/sure.gif) no-repeat;cursor:pointer;display:block;}
+.enter-explain{width:980px;overflow:auto;}
+.explain-box{width:600px;padding:0px 0 20px 25px;float:left;border:0px solid red;}
+.gift-card{float:right;width:343px;border:0px solid green;}
+.card-img{width:343px;height:310px;}
+.explain-box li{margin-top:5px;}
+.enter-explain h2{font-size:14px;color:#878787;font-weight:bold;height:50px;line-height:50px;padding-left:25px;}
+ .enter-explain-menu{width:980px;overflow:hidden;padding-bottom:30px;}
+.explain-f{width:100%;}
+.explain-menu{overflow:hidden;width:600px;}
+.point,.explain-com{float:left;}
+.point{background:url(../images/point.gif) no-repeat;width:8px;height:8px;position:relative;top:7px;}
+.explain-com{width:580px;color:#636363;font-size:12px;line-height:23px;padding-left:10px;}
+.fill-menu_top{width:980px;height:421px;}
+.fill-menu_bottom{width:980px; height: 326px;}

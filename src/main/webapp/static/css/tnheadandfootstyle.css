@@ -1,0 +1,89 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+#focus3{text-align:center; min-width:980px; width:100%; min-height:100%; float:left; background-color:#ffffff; overflow:hidden;}
+.newbgbox{width:100%; background: #ece3d2 url(../images/bg_2017.jpg) repeat center top; float: left;overflow:hidden;}
+
+.Lbg{width:100%; float:left; margin-left:-100%; position:relative ;}
+.Rbg{width:100%; float:right; margin-right:-100%;position:relative;}
+.TN_BigBoxBG{ width:980px; height:auto; margin: 0 auto;background-color:#fefaec; position:relative;}
+
+/*选择地点*/
+.TN_topheader{ width:100%; height:auto; position:relative; z-index:90;}/* 2014.06.27 头部公告 */
+.TN_topheader .TN_chooseADD{ width:100%; height:50px;position:absolute; left:0; top:0; z-index:999; display:none;background-color:#fefaec;}
+.TN_topheader .TN_chooseADD .Ndd{ width:980px; height:50px; margin:0 auto;line-height:50px; font-size:14px; font-family: "微软雅黑"; text-align:left; text-indent:10px;}
+.TN_topheader .TN_chooseADD .Ndd span.Wadd{ float:left;}
+.TN_topheader .TN_chooseADD .Ndd .Xadd{ float:left;}
+.TN_topheader .TN_chooseADD .Ndd .Xadd a{ text-decoration:underline; padding:0 5px;}
+
+
+/*菜单*/
+
+.TN_topheader .TN_menu{ width:100%; height:52px; float:left;  background-color:#c8bb9b; position:relative; z-index:80;}
+.TN_topheader .TN_menu ul{ width:980px; height:52px; margin:0 auto;  background-color:#c8bb9b;}
+/*菜单栏文字修改为图片替换*2014-5-11**/
+.TN_topheader .TN_menu ul li{ width:100px; height:52px; float:left; margin-left:18px; color:#FFF;font-family: "微软雅黑";position:relative; z-index:85;}
+/*菜单栏文字修改为图片替换*2014-5-11**/
+.TN_topheader .TN_menu ul li.TN_LEFTone{ margin-left:0px;}
+.TN_topheader .TN_menu ul li dt{ width:100px; height:33px; float:left; font-size:20px; text-align:center; line-height:40px;font-weight:bold;}
+.TN_topheader .TN_menu ul li dt a{ color:#FFF;}
+.TN_topheader .TN_menu ul li dd{ width:100px; height:20px; float:left; text-align:center; line-height:12px; font-size:12px;}
+.TN_topheader .TN_menu ul li dd a{ color:#FFF;}
+.TN_topheader .TN_menu ul li.TN_logo{ width:271px; height:52px; margin:0px; float:left;}
+
+
+/*下拉菜单**ie7兼容问题解决**2014-5-11文字替换图片**/
+.TN_drop-down{width:127px; height: auto; position:absolute; margin-left:-10px; top:48px;+margin-left:-160px; +top:48px; z-index:444; display:none;}
+.TN_drop-down .TN_drop-down_menuBG{ width:127px; height:170px; position:absolute; margin-left:0; margin-top:0; z-index:554; background:#a99f9d; opacity:0.8;filter:alpha(opacity=80);}
+.TN_drop-down .TN_drop-down_menu{ width:127px; height: auto; position:absolute; margin-left:0; margin-top:0; z-index:555;}
+.TN_drop-down .TN_drop-down_menu p{ width:67px; height:4px; float:left; background-color:#c8bb9b; padding-left:60px;}
+.TN_drop-down .TN_drop-down_menu ul{ width:107px;  background:none; float:left; padding-left:20px;+padding-left:20px;}
+.TN_drop-down .TN_drop-down_menu ul li { width:87px; height:40px; border-bottom: dashed 1px #FFF; float:left; margin-left:0;}
+.TN_drop-down .TN_drop-down_menu ul li a{ width:87px; height:30px; margin:5px 0;color:#FFF;float:left; line-height:40px; font-family: "LEXUS 简正线 U"; text-align:center; font-size:18px;}
+.TN_drop-down .TN_drop-down_menu ul li a:hover{ color:#FFF; border-bottom: solid 1px #FFFFFF;}
+.TN_drop-down .TN_drop-down_menu ul li.TN_noneBUT{ border-bottom: none;}
+
+
+
+/*操作栏*/
+.TN_topheader .TN_list{ width:100%; height:auto; margin:0 auto; clear:both;  background-color:#fefaec; }/* 2014.06.27 头部公告 */
+.TN_topheader .TN_list ul{width:980px; height:25px; margin:0 auto;font-family: "微软雅黑"; background-color:#fefaec;clear:both;}/* 2014.06.27 头部公告 */
+.TN_topheader .TN_list ul#listtow{width:980px;height:25px;overflow:hidden; margin: 0 auto; border-top: dashed 1px #847a79; background-color:#fefaec; } 
+.TN_topheader .TN_list ul#listtow li.TN_gonggao{ width:945px; margin-right:15px; margin-left:20px; height:25px; float:left; color:#ff4001; font-size:15px; text-align:left; line-height:25px; letter-spacing:1px; overflow:hidden;}
+.TN_topheader .TN_list ul#listtow li.TN_gonggao a{color:#ff4001;}
+.TN_topheader .TN_list ul li.TN_address{ width:60px; padding-right:13px; height:22px; color:#fff; background-image:url(../images/tn_address.png); margin:1px 20px 0 18px; float:left; line-height:22px; font-size:15px; cursor: pointer; text-align:center;}
+.TN_topheader .TN_list ul li.TN_call{ width:auto; margin-right:15px; height:25px; float:left; color:#ff4001; font-size:15px; text-align:left; line-height:25px; letter-spacing:1px;}
+.TN_topheader .TN_list ul li.TN_done{ position: relative; z-index:70; text-align: right; height:25px; float:right; padding-right:15px;}
+.TN_topheader .TN_list ul li.TN_done a{ width:auto; height:25px; float:left; color:#ff4001; padding:0 5px; font-size:15px;line-height:25px; letter-spacing:1px;}
+.TN_topheader .TN_list ul li.TN_done a span.TNgg{ text-decoration:underline; margin:0 2px; display:inline;}
+.TN_topheader .TN_list ul li.TN_done span.TN_st{ height:17px; float:left; margin:2px 2px 0 2px; line-height:17px; font-size:15px; color:#847a79; }
+
+/* 2014.06.27 头部公告 */
+.TN_topheader .TN_list ul#listtow{width:980px;height:25px;overflow:hidden; margin: 0 auto; border-top: dashed 1px #847a79; background-color:#fefaec; }
+.TN_topheader .TN_list ul#listtow li.TN_gonggao{position: relative; width:945px; margin-right:15px; margin-left:20px; height:25px; float:left; color:#ff4001; font-size:15px; text-align:left; line-height:25px; letter-spacing:1px; overflow:hidden;}
+.TN_topheader .TN_list ul#listtow li.TN_gonggao a{color:#ff4001;}
+.TN_gonggao .gonggaoMS{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+
+/*底部footer2014-5-8*/
+.TN_footer{ width:100%; height:280px; float:left; padding-top:10px; background-color: #FEFAEC;}
+.TN_footer .TN_footercen{ width:980px; height:280px; margin: 0 auto; }
+
+.TN_footer .TN_footercen .TN_Fone{ width:976px; margin-left:5px; height:55px; padding-top:5px; float:left;text-align:left; font-size:16px; line-height:35px; position:relative; background:url(../images/linebg.png) no-repeat center bottom; position:relative; }
+.TN_footer .TN_footercen .TN_Fone span.TN_but_logo{height:55px; width:258px;float:left; }
+.TN_footer .TN_footercen .TN_Fone span.TN_butL_Byu{height:20px; width:110px; margin-top:30px;float:left; color:#ad9a55; font-size:16px; line-height:20px; font-family:"LEXUS 简正线 U"; font-weight:bold;}
+.TN_footer .TN_footercen .TN_Fone span.TN_but_flower{height:24px; width:22px; position:absolute; bottom:-1px; left:390px; z-index:88;}
+.TN_footer .TN_footercen .TN_Fone p{ width:auto; height:20px; float:right;  text-align:right; line-height:20px; color:#c2af6b; margin-top:30px;}
+.TN_footer .TN_footercen .TN_Fone p a{ cursor: pointer;  height:20px; color:#ad9a55; font-size:13px; line-height:20px; font-family:"LEXUS 简正线 U"; font-weight:bold;}
+.TN_footer .TN_footercen .TN_Fone p span.TN_st{float:left; margin:0px 4px; line-height:20px; font-size:14px;font-family:"LEXUS 简正线 U"; }
+.TN_footer .TN_footercen ul{ width:958px; height:73px; float:left; padding-left:22px;  background:url(../images/linebg2.png) no-repeat center bottom;}
+.TN_footer .TN_footercen ul li{ width:159px; height:52px; margin-top:10px; font-size:18px; float:left; line-height:52px; text-align:left;  color:#c2af6b; font-family:"微软雅黑"; cursor: default; }
+
+.TN_footer .TN_footercen p.TN_Ftow{ width:auto; height:20px; margin-top:20px; float:left; margin-left:123px; text-align:left;}
+.TN_footer .TN_footercen p.TN_Ftow a{ color:#ad9a55; font-size:16px; line-height:20px; font-weight:500;font-family:"LEXUS 简正线 U"; font-weight:bold;}
+.TN_footer .TN_footercen p.TN_Ftow span{color:#ddd; float:left; margin:0 18px; line-height:16px; font-size:18px;font-family:"LEXUS 简正线 U";}
+.TN_footer .TN_footercen p.TN_Fstree {margin-top:30px;width:980px;font-size:13px; line-height: 28px; color:#ddd;text-align: center;}
+.TN_footer .TN_footercen p.TN_Fstree a, .TN_footer .TN_footercen p.TN_Fstree span {margin:0 10px;color:#ad9a55; }
+
+/**********************************样式2014/5/8节点
+**********************************************
+************************************************************/
